@@ -14,12 +14,26 @@
     --alabaster: hsl(231, 100%, 99%);
     --white: hsl(0, 0%, 100%);
 }
+
+.disabled-text {
+    color: var(--cool-gray);
+}
+.active-text, .disabled-text {
+    font-weight: 650;
+}
+/*
+    ################################################
+    ################################################
+    Global Styles
+    ################################################
+    ################################################
+*/
 body {
   font-family:'Ubuntu', sans-serif;
-  background-color: rgba(191, 226, 253,0.3);
+  background-color: var(--light-blue)!important;
 }
 .bg-light-gray {
-    background-color: var(--alabaster)
+    background-color: var(--light-gray);
 }
 .bg-marine-blue {
     background-color: var(--marine-blue);
@@ -27,13 +41,6 @@ body {
 .active-text {
     color: var(--marine-blue);
 }
-.disabled-text {
-    color: var(--cool-gray);
-}
-.active-text, .disabled-text {
-    font-weight: 650;
-}
-
 .wrapper {
     width: 60%;
     height: 80vh;
@@ -42,7 +49,37 @@ body {
     padding: 20px 25px;
     border-radius: 10px;
     box-shadow: 4px 8px 10px var(--light-gray);
+    background-color: var(--white)
 }
+.prev-btn {
+    background: none;
+    color: var(--cool-gray);
+}
+.next-btn {
+    border-radius: 8px;
+    background-color: var(--marine-blue);
+    color: var(--white);
+}
+.prev-btn, .next-btn {
+    padding: 8px 16px;
+    font-weight: 550;
+    transition: 0.7s;
+    border: none;
+}
+.prev-btn:hover {
+    color: var(--marine-blue);
+}
+.attribution {
+    padding: 20px;
+    text-align: center;
+}
+/*
+    ################################################
+    ################################################
+    Sidebar Styles
+    ################################################
+    ################################################
+*/
 .sidebar {
     background-image: url("./assets/images/bg-sidebar-desktop.svg");
     background-repeat: no-repeat;
@@ -64,6 +101,10 @@ body {
     margin-right: 10px;
     border:  1px solid var(--magnolia);
     font-size: 14px;
+}
+.active-step {
+    color: var(--marine-blue);
+    background-color: var(--light-blue)
 }
 .step div {
     line-height:  5px;
@@ -117,57 +158,75 @@ form span {
     font-size: 13px;
 }
 
-.card {
-    cursor: pointer;
-    border-radius: 10px!important;
-    border: 1.5px solid var(--light-gray)!important;
-    transition: border 0.6s;
+.selectPlan-card div:last-child{
+    line-height: 8px;
 }
-.card:hover {
-    border: 1.5px solid var(--purplish-blue)!important;
-}
-.card img {
-    width: 40px;
-    height: auto;
-}
-.card h5 {
-    color: var(--marine-blue);
-}
-.card p {
+.selectPlan-card div:last-child p{
     color: var(--cool-gray);
     font-size: 14px;
 }
-.card div {
-    line-height: 8px
+/*
+    ################################################
+    ################################################
+    Add-ons  styles
+    ################################################
+    ################################################
+*/
+.add-ons-card {
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1.5px solid var(--light-gray);
+    transition: border 0.6s;
+    margin-bottom: 12.8px;
 }
-
-/* ##### Start of Add-ons  styles #####*/
-.add-ons {
-    margin-bottom: 10px;
+.add-ons-card:hover {
+    border: 1.5px solid var(--purplish-blue);
 }
-.add-ons .col-1 input:checked{
-    font-size: 50px;
-    color: var(--purplish-blue);
+.add-ons-card-checked {
+    border: 1.5px solid var(--purplish-blue);
 }
-.add-ons .col-8 {
-    line-height: 1px;
+.add-ons-card img {
+    width: 40px;
+    height: auto;
 }
-.add-ons .col-8 h6{
+.add-ons-card h5 {
     color: var(--marine-blue);
 }
-.add-ons .col-3 {
+.add-ons-card p {
+    color: var(--cool-gray);
+    font-size: 14px;
+}
+.add-ons-card div {
+    line-height: 8px
+}
+.add-ons-card input[type=checkbox] {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--purplish-blue);
+}
+.add-ons-card .col-8 {
+    line-height: 1px;
+}
+.add-ons-card .col-8 h6{
+    color: var(--marine-blue);
+}
+.add-ons-card .col-3 {
     color: var(--purplish-blue);
     font-weight: 450;
 }
-/* ##### End of Add-ons  styles #####*/
-
-/* ##### Start of Summary  styles #####*/
+/*
+    ################################################
+    ################################################
+    Summary  styles
+    ################################################
+    ################################################
+*/
 .summary-wrapper {
     padding: 20px;
     border-radius: 10px;
     background: var(--alabaster)
 }
-.summary-card button {
+.summary-add-ons-card button {
     border:  none;
     background: transparent;
     padding: 0;
@@ -175,13 +234,13 @@ form span {
     color: var(--cool-gray);
     transition: color 0.7s
 }
-.summary-card button:hover {
+.summary-add-ons-card button:hover {
     color: var(--purplish-blue);
 }
-.summary-card{
+.summary-add-ons-card{
     line-height: 10px;
 }
-.summary-card div:first-child, div:last-child {
+.summary-add-ons-card div:first-child, div:last-child {
     color: var(--marine-blue);
     font-weight: 600;
 }
@@ -197,6 +256,9 @@ form span {
     font-size: 14px;
 }
 
+.total-price {
+    margin-bottom: 40px;
+}
 .total-price div:first-child {
     color: var(--cool-gray);
     font-weight: 450;
@@ -205,27 +267,6 @@ form span {
     color: var(--purplish-blue);
     font-weight: 700;
 }
-/* ##### End of Summary  styles #####*/
-
-
-.prev-btn {
-    background: none;
-    color: var(--cool-gray);
-}
-.next-btn {
-    border-radius: 8px;
-    background-color: var(--marine-blue);
-    color: var(--white);
-}
-.prev-btn, .next-btn {
-    padding: 8px 16px;
-    font-weight: 550;
-    transition: 0.7s;
-    border: none;
-}
-.prev-btn:hover {
-    color: var(--marine-blue);
-}
 @media screen and (max-width: 768px){
     .wrapper {
         width: 100%;
@@ -233,6 +274,10 @@ form span {
         margin-top: 0;
         padding: 0;
         height: auto;
+    }
+    .attribution {
+        margin-top: 80%;
+        margin-bottom: 30%;
     }
     .sidebar {
         background-image: url("./assets/images/bg-sidebar-mobile.svg");
@@ -244,6 +289,25 @@ form span {
         text-align: center;
         padding-top: 20px;
     }
+    .main-content {
+        position: absolute;
+        background-color: var(--white);
+        margin-left: 55px;
+        top: 100px;
+        border-radius: 10px;
+        width: 80%!important;
+        z-index: 1;
+        box-shadow: 0 6px 8px var(--cool-gray);
+    }
+    .main-content .navigation{
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        background-color: var(--white);
+        z-index: 2;
+        padding: 30px;
+        width: 100%;
+    }
     .step h5 {
         width: 40px; 
         height: 40px;
@@ -254,7 +318,11 @@ form span {
         display: none;
     }
     
-    .card img {
+    .add-ons-card img {
         width: 100%;
+    }
+    .selectPlan-card div:last-child{
+        margin-left: 14px;
+        line-height: 2px
     }
 }

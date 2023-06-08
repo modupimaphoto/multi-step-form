@@ -1,12 +1,53 @@
+import { useState } from 'react';
 
+import YourInfo from './yourInfo';
+import SelectPlan from './selectPlan';
+import AddOns from './addOns';
+import Summary from './summary';
+import ThankYou from './thankYou';
+
+const Steps = ({ step }) => {
+  
+  
+  if(step === 1){
+
+    return <YourInfo />;
+  }else if(step === 2){
+
+    return <SelectPlan />;
+  }else if(step === 3){
+
+    return <AddOns />;
+  }else if(step === 4){
+
+    return <Summary />;
+  }else{
+
+    return <ThankYou />;
+  }
+}
 
 function App() {
+  const [step, setStep] = useState(1);
+
+  const nextStep = () => {
+    setStep(step + 1);
+  }
+  const prevStep = () => {
+    setStep(step - 1);
+  }
+
+  const navigation = document.querySelector(".navigation");
+  if(step === 5){
+    navigation.style.display = 'none';
+  }
+
   return (
     <>
-      <div class="wrapper">
-        <div class="row">
-          <div class="col-md-4 sidebar">
-            <div class="d-inline-block d-md-flex align-items-center step">
+      <div className="wrapper">
+        <div className="row">
+          <div className="col-md-4 sidebar">
+            <div className="d-inline-block d-md-flex align-items-center step">
                 <h5>1</h5>
                 <div>
                     <h6>Step 1</h6>
@@ -15,7 +56,7 @@ function App() {
                     </p>
                 </div>
             </div>
-            <div class="d-inline-block d-md-flex align-items-center step">
+            <div className="d-inline-block d-md-flex align-items-center step">
               <h5>2</h5>
               <div>
                   <h6>Step 2</h6>
@@ -24,7 +65,7 @@ function App() {
                   </p>
               </div>
             </div>
-            <div class="d-inline-block d-md-flex align-items-center step">
+            <div className="d-inline-block d-md-flex align-items-center step">
               <h5>3</h5>
               <div>
                   <h6>Step 3</h6>
@@ -33,7 +74,7 @@ function App() {
                   </p>
               </div>
             </div>
-            <div class="d-inline-block d-md-flex align-items-center step">
+            <div className="d-inline-block d-md-flex align-items-center step">
               <h5>4</h5>
               <div>
                   <h6>Step 4</h6>
@@ -43,21 +84,24 @@ function App() {
               </div>
             </div>
           </div>
-          <div class="col-md-8">
-            <div class="container">
+          <div className="col-md-8 main-content">
+            <div className="container">
 
               <div id="display-content">
               
+                <Steps step={ step } />
+
               </div>
               
-              
-              <div class="navigation">
-                <div class="d-flex justify-content-between">
-                  <div>
-                    <button class="prev-btn" id="prev-btn">Go back</button>
-                  </div>
-                  <div>
-                    <button class="next-btn" id="next-btn">Next step</button>
+              <div className="navigation">
+                <div >
+                  <div className="d-flex justify-content-between">
+                    <div>
+                      { (step === 1) ? '' : <button className="prev-btn" onClick={ prevStep }>Go back</button> }
+                    </div>
+                    <div>
+                      <button className="next-btn" onClick={ nextStep }>Next step</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -67,7 +111,7 @@ function App() {
         </div>
       </div>
     
-      <div class="text-center p-3">
+      <div className="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
         Coded by <a href="https://github.com/modupimaphoto">modupimaphoto</a>.
       </div>
