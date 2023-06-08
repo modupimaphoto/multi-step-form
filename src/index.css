@@ -1,4 +1,260 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+:root {
+    /* Primary */
+    --marine-blue: hsl(213, 96%, 18%);
+    --purplish-blue: hsl(243, 100%, 62%);
+    --pastel-blue: hsl(228, 100%, 84%);
+    --light-blue: hsl(206, 94%, 87%);
+    --strawberry-red: hsl(354, 84%, 57%);
+
+    /* Neutral */
+    --cool-gray: hsl(231, 11%, 63%);
+    --light-gray: hsl(229, 24%, 87%);
+    --magnolia: hsl(217, 100%, 97%);
+    --alabaster: hsl(231, 100%, 99%);
+    --white: hsl(0, 0%, 100%);
+}
 body {
   font-family:'Ubuntu', sans-serif;
+  background-color: rgba(191, 226, 253,0.3);
+}
+.bg-light-gray {
+    background-color: var(--alabaster)
+}
+.bg-marine-blue {
+    background-color: var(--marine-blue);
+}
+.active-text {
+    color: var(--marine-blue);
+}
+.disabled-text {
+    color: var(--cool-gray);
+}
+.active-text, .disabled-text {
+    font-weight: 650;
+}
+
+.wrapper {
+    width: 60%;
+    height: 80vh;
+    margin: auto;
+    margin-top: 3%;
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 4px 8px 10px var(--light-gray);
+}
+.sidebar {
+    background-image: url("./assets/images/bg-sidebar-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 10px;
+    padding: 20px;
+    height: 75vh;
+} 
+.step {
+    margin-bottom: 16px;
+}
+.step h5{
+    border-radius: 50%;
+    color: var(--white);
+    width: 30px; 
+    height: 30px;
+    padding: 4px;
+    text-align: center;
+    margin-right: 10px;
+    border:  1px solid var(--magnolia);
+    font-size: 14px;
+}
+.step div {
+    line-height:  5px;
+    text-transform: uppercase;
+}
+.step h6 {
+    color: var(--cool-gray);
+    font-size: 12px;
+}
+.step p {
+    color: var(--white);
+    font-weight: 400;
+    font-size: 14px;
+}
+.heading {
+    color: var(--marine-blue);
+    font-weight: 700;
+}
+form input[type="text"], input[type="email"] {
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    border: 1.5px solid var(--light-gray);
+    outline: none;
+}
+form input[type="text"]:focus, input[type="email"]:focus{
+    border: 1.5px solid var(--purplish-blue);
+}
+form input[type="submit"] {
+    padding: 15px;
+    float: right;
+    background-color: var(--purplish-blue);
+    color: var(--white);
+    border-radius: 10px;
+    border: none
+}
+
+form label {
+    font-weight: 600;
+    color: var(--marine-blue);
+    font-size: 13px;
+}
+form div {
+    line-height: 10px;
+}
+form span {
+    float: right;
+    color: var(--strawberry-red);
+    font-weight: 450;
+    font-size: 13px;
+}
+
+.card {
+    cursor: pointer;
+    border-radius: 10px!important;
+    border: 1.5px solid var(--light-gray)!important;
+    transition: border 0.6s;
+}
+.card:hover {
+    border: 1.5px solid var(--purplish-blue)!important;
+}
+.card img {
+    width: 40px;
+    height: auto;
+}
+.card h5 {
+    color: var(--marine-blue);
+}
+.card p {
+    color: var(--cool-gray);
+    font-size: 14px;
+}
+.card div {
+    line-height: 8px
+}
+
+/* ##### Start of Add-ons  styles #####*/
+.add-ons {
+    margin-bottom: 10px;
+}
+.add-ons .col-1 input:checked{
+    font-size: 50px;
+    color: var(--purplish-blue);
+}
+.add-ons .col-8 {
+    line-height: 1px;
+}
+.add-ons .col-8 h6{
+    color: var(--marine-blue);
+}
+.add-ons .col-3 {
+    color: var(--purplish-blue);
+    font-weight: 450;
+}
+/* ##### End of Add-ons  styles #####*/
+
+/* ##### Start of Summary  styles #####*/
+.summary-wrapper {
+    padding: 20px;
+    border-radius: 10px;
+    background: var(--alabaster)
+}
+.summary-card button {
+    border:  none;
+    background: transparent;
+    padding: 0;
+    text-decoration: underline;
+    color: var(--cool-gray);
+    transition: color 0.7s
+}
+.summary-card button:hover {
+    color: var(--purplish-blue);
+}
+.summary-card{
+    line-height: 10px;
+}
+.summary-card div:first-child, div:last-child {
+    color: var(--marine-blue);
+    font-weight: 600;
+}
+.add-ons-summary div{
+    margin-bottom: 8px;
+}
+.add-ons-summary  div div:first-child {
+    color: var(--cool-gray);
+}
+.add-ons-summary  div div:last-child {
+    color: var(--marine-blue);
+    font-weight: 450;
+    font-size: 14px;
+}
+
+.total-price div:first-child {
+    color: var(--cool-gray);
+    font-weight: 450;
+}
+.total-price div:last-child {
+    color: var(--purplish-blue);
+    font-weight: 700;
+}
+/* ##### End of Summary  styles #####*/
+
+
+.prev-btn {
+    background: none;
+    color: var(--cool-gray);
+}
+.next-btn {
+    border-radius: 8px;
+    background-color: var(--marine-blue);
+    color: var(--white);
+}
+.prev-btn, .next-btn {
+    padding: 8px 16px;
+    font-weight: 550;
+    transition: 0.7s;
+    border: none;
+}
+.prev-btn:hover {
+    color: var(--marine-blue);
+}
+@media screen and (max-width: 768px){
+    .wrapper {
+        width: 100%;
+        box-shadow: none;
+        margin-top: 0;
+        padding: 0;
+        height: auto;
+    }
+    .sidebar {
+        background-image: url("./assets/images/bg-sidebar-mobile.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        border-radius: 10px;
+        padding: 20px;
+        height: 40vh;
+        text-align: center;
+        padding-top: 20px;
+    }
+    .step h5 {
+        width: 40px; 
+        height: 40px;
+        font-size: 16px;
+        padding: 8px;
+    }
+    .step div{
+        display: none;
+    }
+    
+    .card img {
+        width: 100%;
+    }
 }
