@@ -11,21 +11,18 @@ const YourInfo = () => {
             ...prevName,
             name: event.target.value
         }));
-        console.log(event.target.value);
     }
     const handleEmailChange = (event) => {
         setPersonalDetails( (prevEmail) => ({
             ...prevEmail,
             email: event.target.value
         }));
-        console.log(event.target.value);
     }
     const handlePhoneNumberChange = (event) => {
         setPersonalDetails( (prevPhoneNumber) => ({
             ...prevPhoneNumber,
             phoneNumber: event.target.value
         }));
-        console.log(event.target.value);
     }
     
     return (
