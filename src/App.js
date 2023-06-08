@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import YourInfo from './yourInfo';
 import SelectPlan from './selectPlan';
@@ -37,10 +37,33 @@ function App() {
     setStep(step - 1);
   }
 
-  const navigation = document.querySelector(".navigation");
-  if(step === 5){
-    navigation.style.display = 'none';
-  }
+  useEffect(() => {
+    const navigation = document.querySelector(".navigation");
+    if(step === 5){
+      navigation.style.display = 'none';
+    }
+
+    const step1 = document.querySelector("#step-1");
+    const step2 = document.querySelector("#step-2");
+    const step3 = document.querySelector("#step-3");
+    const step4 = document.querySelector("#step-4");
+
+    if(step === 1){
+      step1.classList.add('active-step');
+      step2.classList.remove('active-step');
+    }else if(step === 2){
+      step1.classList.remove('active-step');
+      step2.classList.add('active-step');
+      step3.classList.remove('active-step');
+    }else if(step === 3){
+      step2.classList.remove('active-step');
+      step3.classList.add('active-step');
+      step4.classList.remove('active-step');
+    }else{
+      step3.classList.remove('active-step');
+      step4.classList.add('active-step');
+    }
+  },[step])
 
   return (
     <>
@@ -48,7 +71,7 @@ function App() {
         <div className="row">
           <div className="col-md-4 sidebar">
             <div className="d-inline-block d-md-flex align-items-center step">
-                <h5>1</h5>
+                <h5 id="step-1" className="">1</h5>
                 <div>
                     <h6>Step 1</h6>
                     <p>
@@ -57,7 +80,7 @@ function App() {
                 </div>
             </div>
             <div className="d-inline-block d-md-flex align-items-center step">
-              <h5>2</h5>
+              <h5 id="step-2" className="">2</h5>
               <div>
                   <h6>Step 2</h6>
                   <p>
@@ -66,7 +89,7 @@ function App() {
               </div>
             </div>
             <div className="d-inline-block d-md-flex align-items-center step">
-              <h5>3</h5>
+              <h5 id="step-3" className="">3</h5>
               <div>
                   <h6>Step 3</h6>
                   <p>
@@ -75,7 +98,7 @@ function App() {
               </div>
             </div>
             <div className="d-inline-block d-md-flex align-items-center step">
-              <h5>4</h5>
+              <h5 id="step-4" className="">4</h5>
               <div>
                   <h6>Step 4</h6>
                   <p>
